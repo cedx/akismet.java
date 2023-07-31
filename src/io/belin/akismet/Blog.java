@@ -70,7 +70,7 @@ public class Blog {
 
 	/**
 	 * Converts this object to a map.
-	 * @return \stdClass The map in JSON format corresponding to this object.
+	 * @return The map corresponding to this object.
 	 */
 	public Map<String, String> toMap() {
 		var map = new HashMap<String, String>();
