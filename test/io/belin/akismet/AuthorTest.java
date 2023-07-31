@@ -1,11 +1,9 @@
 package io.belin.akismet;
 
 import static org.junit.jupiter.api.Assertions.*;
-
 import java.net.InetAddress;
 import java.net.URI;
 import java.net.UnknownHostException;
-
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

@@ -61,6 +61,14 @@ public class Comment {
 	/**
 	 * Creates a new comment.
 	 * @param Author author The comment's author.
+	 */
+	public Comment(Author author) {
+		this(author, null, null, null, null, null, null, null, null);
+	}
+
+	/**
+	 * Creates a new comment.
+	 * @param Author author The comment's author.
 	 * @param content The comment's content.
 	 * @param type The comment's type.
 	 */
