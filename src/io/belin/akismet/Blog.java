@@ -42,6 +42,24 @@ public class Blog {
 	 * Creates a new blog.
 	 * @param url The blog or site URL.
 	 * @param charset The character encoding for the values included in comments.
+	 */
+	public Blog(URI url, Charset charset) {
+		this(url, charset, null);
+	}
+
+	/**
+	 * Creates a new blog.
+	 * @param url The blog or site URL.
+	 * @param languages The languages in use on the blog or site, in ISO 639-1 format.
+	 */
+	public Blog(URI url, List<String> languages) {
+		this(url, null, languages);
+	}
+
+	/**
+	 * Creates a new blog.
+	 * @param url The blog or site URL.
+	 * @param charset The character encoding for the values included in comments.
 	 * @param languages The languages in use on the blog or site, in ISO 639-1 format.
 	 */
 	public Blog(URI url, Charset charset, List<String> languages) {
