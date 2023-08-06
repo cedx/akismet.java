@@ -13,6 +13,7 @@ import java.util.stream.Collectors;
 /**
  * Represents the front page or home URL transmitted when making requests.
  */
+@SuppressWarnings("PMD.ShortClassName")
 public class Blog {
 
 	/**

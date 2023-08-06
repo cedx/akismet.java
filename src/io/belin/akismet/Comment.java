@@ -127,6 +127,7 @@ public class Comment {
 	 * Converts this object to a map.
 	 * @return The map corresponding to this object.
 	 */
+	@SuppressWarnings("PMD.NPathComplexity")
 	public Map<String, String> toMap() {
 		var map = author.toMap();
 		if (!content.isEmpty()) map.put("comment_content", content);

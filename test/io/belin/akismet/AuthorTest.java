@@ -2,8 +2,8 @@ package io.belin.akismet;
 
 import static org.junit.jupiter.api.Assertions.*;
 import java.net.InetAddress;
-import java.net.URI;
 import java.net.UnknownHostException;
+import java.net.URI;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -15,6 +15,7 @@ final class AuthorTest {
 
 	@Test
 	@DisplayName("toMap()")
+	@SuppressWarnings({"PMD.AvoidUsingHardCodedIP", "PMD.LinguisticNaming"})
 	void toMap() throws UnknownHostException {
 		// It should return only the IP address with a newly created instance.
 		var map = new Author(InetAddress.getByName("127.0.0.1")).toMap();

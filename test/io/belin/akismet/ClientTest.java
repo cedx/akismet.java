@@ -2,8 +2,8 @@ package io.belin.akismet;
 
 import static org.junit.jupiter.api.Assertions.*;
 import java.net.InetAddress;
-import java.net.URI;
 import java.net.UnknownHostException;
+import java.net.URI;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -12,6 +12,7 @@ import org.junit.jupiter.api.Test;
  * Tests the features of the {@see Client} class.
  */
 @DisplayName("Client")
+@SuppressWarnings("PMD.AvoidUsingHardCodedIP")
 final class ClientTest {
 
 	/**
@@ -30,6 +31,7 @@ final class ClientTest {
 	private static Comment spam;
 
 	@BeforeAll
+	@SuppressWarnings("PMD.AvoidUsingHardCodedIP")
 	static void beforeAll() throws UnknownHostException {
 		client = new Client(System.getenv("AKISMET_API_KEY"), new Blog(URI.create("https://github.com/cedx/akismet.java")));
 		client.isTest = true;

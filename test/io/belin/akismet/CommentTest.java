@@ -2,8 +2,8 @@ package io.belin.akismet;
 
 import static org.junit.jupiter.api.Assertions.*;
 import java.net.InetAddress;
-import java.net.URI;
 import java.net.UnknownHostException;
+import java.net.URI;
 import java.time.Instant;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -16,6 +16,7 @@ final class CommentTest {
 
 	@Test
 	@DisplayName("toMap()")
+	@SuppressWarnings({"PMD.AvoidDuplicateLiterals", "PMD.AvoidUsingHardCodedIP", "PMD.LinguisticNaming"})
 	void toMap() throws UnknownHostException {
 		// It should return only the author info with a newly created instance.
 		var map = new Comment(new Author(InetAddress.getByName("127.0.0.1"))).toMap();

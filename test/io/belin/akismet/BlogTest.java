@@ -15,6 +15,7 @@ final class BlogTest {
 
 	@Test
 	@DisplayName("toMap()")
+	@SuppressWarnings({"PMD.AvoidDuplicateLiterals", "PMD.LinguisticNaming"})
 	void toMap() {
 		// It should return only the blog URL with a newly created instance.
 		var map = new Blog(URI.create("https://github.com/cedx/akismet.java")).toMap();
