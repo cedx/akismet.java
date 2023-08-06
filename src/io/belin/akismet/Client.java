@@ -1,12 +1,18 @@
 package io.belin.akismet;
 
+import java.io.IOException;
 import java.io.Serial;
 import java.net.URI;
+import java.net.URLEncoder;
+import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.net.http.HttpResponse.BodyHandlers;
+import java.nio.charset.Charset;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 /**
  * Submits comments to the [Akismet](https://akismet.com) service.
@@ -140,41 +146,38 @@ public final class Client {
 	 * @return ResponseInterface The server response.
 	 * @throws Exception An error occurred while querying the end point.
 	 */
-	private HttpResponse<String> fetch(String endpoint, Map<String, String> fields) {
+	private HttpResponse<String> fetch(String endpoint, Map<String, String> fields) throws Exception {
 		var postFields = this.blog.toMap();
 		postFields.putAll(fields);
 		postFields.put("api_key", apiKey);
 		if (isTest) postFields.put("is_test", "1");
 
-		var request = HttpRequest.newBuilder(baseUrl.resolve(endpoint)).POST().build();
+		var charset = Charset.defaultCharset();
+		var body = postFields.entrySet()
+			.stream()
+			.map(entry -> URLEncoder.encode(entry.getKey(), charset) + "=" + URLEncoder.encode(entry.getValue(), charset))
+			.collect(Collectors.joining("&"));
 
-		$headers = [];
-		curl_setopt_array($handle, [
-			CURLOPT_POST => true,
-			CURLOPT_POSTFIELDS => http_build_query(postFields, arg_separator: "&", encoding_type: PHP_QUERY_RFC1738),
-			CURLOPT_RETURNTRANSFER => true,
-			CURLOPT_USERAGENT => this.userAgent,
-			CURLOPT_HEADERFUNCTION => function($_, $header) use (&$headers) {
-				$parts = explode(":", $header, 2);
-				if (count($parts) == 2) $headers[trim($parts[0])] = trim($parts[1]);
-				return strlen($header);
-			}
-		]);
+		var request = HttpRequest.newBuilder(baseUrl.resolve(endpoint))
+			.header("Content-Type", "application/x-www-form-urlencoded")
+			.POST(HttpRequest.BodyPublishers.ofString(body))
+			.build();
 
-		$body = curl_exec($handle);
-		if ($body === false) throw new Exception("An error occurred while querying the end point.", 500);
+		try {
+			var response = HttpClient.newHttpClient().send(request, BodyHandlers.ofString());
+			if ((response.statusCode() / 100) != 2) throw new Exception("An error occurred while sending the request.");
 
-		response = new Response(body: (string) $body, headers: $headers, status: curl_getinfo($handle, CURLINFO_RESPONSE_CODE));
-		if (intdiv($status = response.getStatusCode(), 100) != 2) throw new Exception(response.getReasonPhrase(), $status);
+			var headers = response.headers();
+			if (headers.firstValue("X-akismet-alert-code").isPresent()) throw new Exception(headers.firstValue("X-akismet-alert-msg").get());
 
-		if (response.hasHeader("X-akismet-alert-code")) {
-			$code = (int) response.getHeaderLine("X-akismet-alert-code");
-			throw new Exception(response.getHeaderLine("X-akismet-alert-msg"), $code);
+			var header = headers.firstValue("X-akismet-debug-help");
+			if (header.isPresent()) throw new Exception(header.get());
+
+			return response;
 		}
-
-		return response.hasHeader("X-akismet-debug-help")
-			? throw new Exception(response.getHeaderLine("X-akismet-debug-help"), 400)
-			: response;
+		catch (InterruptedException|IOException e) {
+			throw new Exception(e);
+		}
 	}
 
 	/**

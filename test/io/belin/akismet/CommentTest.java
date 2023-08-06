@@ -35,7 +35,7 @@ final class CommentTest {
 		assertEquals(7, map.size());
 		assertEquals("Cédric Belin", map.get("comment_author"));
 		assertEquals("A user comment.", map.get("comment_content"));
-		assertEquals("2000-01-01T00:00:00+00:00", map.get("comment_date_gmt"));
+		assertEquals("2000-01-01T00:00:00Z", map.get("comment_date_gmt"));
 		assertEquals("blog-post", map.get("comment_type"));
 		assertEquals("https://belin.io", map.get("referrer"));
 		assertEquals("Doom/6.6.6", map.get("user_agent"));

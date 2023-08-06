@@ -94,7 +94,7 @@ public class Author {
 	 */
 	public Map<String, String> toMap() {
 		var map = new HashMap<String, String>();
-		map.put("user_ip", ipAddress.toString());
+		map.put("user_ip", ipAddress.getHostAddress());
 		if (!email.isEmpty()) map.put("comment_author_email", email);
 		if (!name.isEmpty()) map.put("comment_author", name);
 		if (!role.isEmpty()) map.put("user_role", role);
