@@ -15,7 +15,7 @@ import java.util.Objects;
 import java.util.stream.Collectors;
 
 /**
- * Submits comments to the [Akismet](https://akismet.com) service.
+ * Submits comments to the Akismet service.
  */
 public final class Client {
 
