@@ -10,7 +10,7 @@ import java.net.URI;
  * Submits spam to the Akismet service.
  */
 @SuppressWarnings({"PMD.NoPackage", "PMD.UseUtilityClass"})
-class SendMessage {
+class SubmitSpam {
 
 	/**
 	 * Application entry point.

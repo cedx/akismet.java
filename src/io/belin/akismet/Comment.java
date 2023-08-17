@@ -60,7 +60,7 @@ public class Comment {
 
 	/**
 	 * Creates a new comment.
-	 * @param Author author The comment's author.
+	 * @param author The comment's author.
 	 */
 	public Comment(Author author) {
 		this(author, null, null, null, null, null, null, null, null);
@@ -68,7 +68,7 @@ public class Comment {
 
 	/**
 	 * Creates a new comment.
-	 * @param Author author The comment's author.
+	 * @param author The comment's author.
 	 * @param content The comment's content.
 	 * @param type The comment's type.
 	 */
@@ -78,7 +78,7 @@ public class Comment {
 
 	/**
 	 * Creates a new comment.
-	 * @param Author author The comment's author.
+	 * @param author The comment's author.
 	 * @param date The UTC timestamp of the creation of the comment.
 	 * @param postModified The UTC timestamp of the publication time for the post, page or thread on which the comment was posted.
 	 */
@@ -88,7 +88,7 @@ public class Comment {
 
 	/**
 	 * Creates a new comment.
-	 * @param Author author The comment's author.
+	 * @param author The comment's author.
 	 * @param permalink The permanent location of the entry the comment is submitted to.
 	 * @param referrer The URL of the webpage that linked to the entry being requested.
 	 */
@@ -98,7 +98,7 @@ public class Comment {
 
 	/**
 	 * Creates a new comment.
-	 * @param Author author The comment's author.
+	 * @param author The comment's author.
 	 * @param content The comment's content.
 	 * @param type The comment's type.
 	 * @param date The UTC timestamp of the creation of the comment.

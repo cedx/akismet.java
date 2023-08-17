@@ -6,7 +6,7 @@ import java.net.URI;
  * Verifies an Akismet API key.
  */
 @SuppressWarnings({"PMD.NoPackage", "PMD.UseUtilityClass"})
-class SendMessage {
+class VerifyKey {
 
 	/**
 	 * Application entry point.

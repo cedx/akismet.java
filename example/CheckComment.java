@@ -14,7 +14,7 @@ import java.util.List;
  * Checks a comment against the Akismet service.
  */
 @SuppressWarnings({"PMD.NoPackage", "PMD.UseUtilityClass"})
-class SendMessage {
+class CheckComment {
 
 	/**
 	 * Application entry point.

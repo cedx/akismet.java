@@ -10,7 +10,7 @@ import java.net.URI;
  * Submits ham to the Akismet service.
  */
 @SuppressWarnings({"PMD.NoPackage", "PMD.UseUtilityClass"})
-class SendMessage {
+class SubmitHam {
 
 	/**
 	 * Application entry point.

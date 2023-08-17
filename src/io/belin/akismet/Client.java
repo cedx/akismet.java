@@ -77,7 +77,7 @@ public final class Client {
 	 * Creates a new client.
 	 * @param apiKey The Akismet API key.
 	 * @param blog The front page or home URL of the instance making requests.
-	 * @param bool isTest Value indicating whether the client operates in test mode.
+	 * @param isTest Value indicating whether the client operates in test mode.
 	 * @param userAgent The user agent string to use when making requests.
 	 * @param baseUrl The base URL of the remote API endpoint.
 	 */
@@ -100,6 +100,7 @@ public final class Client {
 	 * Checks the specified comment against the service database, and returns a value indicating whether it is spam.
 	 * @param comment The comment to be submitted.
 	 * @return A value indicating whether the specified comment is spam.
+	 * @throws Exception The remote server returned an invalid response.
 	 */
 	public CheckResult checkComment(Comment comment) throws Exception {
 		var response = fetch("1.1/comment-check", comment.toMap());
@@ -131,6 +132,7 @@ public final class Client {
 	/**
 	 * Checks the API key against the service database, and returns a value indicating whether it is valid.
 	 * @return `true` if the specified API key is valid, otherwise `false`.
+	 * @throws Exception The remote server returned an invalid response.
 	 */
 	public boolean verifyKey() throws Exception {
 		var map = new HashMap<String, String>();
@@ -142,8 +144,8 @@ public final class Client {
 	/**
 	 * Queries the service by posting the specified fields to a given end point, and returns the response.
 	 * @param endpoint The URL of the end point to query.
-	 * @param object $fields The fields describing the query body.
-	 * @return ResponseInterface The server response.
+	 * @param fields The fields describing the query body.
+	 * @return The server response.
 	 * @throws Exception An error occurred while querying the end point.
 	 */
 	private HttpResponse<String> fetch(String endpoint, Map<String, String> fields) throws Exception {
