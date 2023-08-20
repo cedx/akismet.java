@@ -70,6 +70,15 @@ public class Comment {
 	 * Creates a new comment.
 	 * @param author The comment's author.
 	 * @param content The comment's content.
+	 */
+	public Comment(Author author, String content) {
+		this(author, content, null, null, null, null, null, null, null);
+	}
+
+	/**
+	 * Creates a new comment.
+	 * @param author The comment's author.
+	 * @param content The comment's content.
 	 * @param type The comment's type.
 	 */
 	public Comment(Author author, String content, String type) {

@@ -52,6 +52,15 @@ public class Author {
 	/**
 	 * Creates a new author.
 	 * @param ipAddress The author's IP address.
+	 * @param userAgent The author's user agent, that is the string identifying the Web browser used to submit comments.
+	 */
+	public Author(InetAddress ipAddress, String userAgent) {
+		this(ipAddress, null, null, null, null, userAgent);
+	}
+
+	/**
+	 * Creates a new author.
+	 * @param ipAddress The author's IP address.
 	 * @param role The author's role. If you set it to `"administrator"`, Akismet will always return `false`.
 	 * @param userAgent The author's user agent, that is the string identifying the Web browser used to submit comments.
 	 */

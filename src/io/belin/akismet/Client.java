@@ -67,10 +67,31 @@ public final class Client {
 	 * Creates a new client.
 	 * @param apiKey The Akismet API key.
 	 * @param blog The front page or home URL of the instance making requests.
+	 * @param isTest Value indicating whether the client operates in test mode.
+	 */
+	public Client(String apiKey, Blog blog, boolean isTest) {
+		this(apiKey, blog, isTest, null, null);
+	}
+
+	/**
+	 * Creates a new client.
+	 * @param apiKey The Akismet API key.
+	 * @param blog The front page or home URL of the instance making requests.
 	 * @param userAgent The user agent string to use when making requests.
 	 */
 	public Client(String apiKey, Blog blog, String userAgent) {
 		this(apiKey, blog, false, userAgent, null);
+	}
+
+	/**
+	 * Creates a new client.
+	 * @param apiKey The Akismet API key.
+	 * @param blog The front page or home URL of the instance making requests.
+	 * @param isTest Value indicating whether the client operates in test mode.
+	 * @param userAgent The user agent string to use when making requests.
+	 */
+	public Client(String apiKey, Blog blog, boolean isTest, String userAgent) {
+		this(apiKey, blog, isTest, userAgent, null);
 	}
 
 	/**

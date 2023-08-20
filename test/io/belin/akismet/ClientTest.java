@@ -83,8 +83,7 @@ final class ClientTest {
 		assertTrue(client.verifyKey());
 
 		// It should return `false` for an invalid API key.
-		var newClient = new Client("0123456789-ABCDEF", client.blog);
-		newClient.isTest = true;
+		var newClient = new Client("0123456789-ABCDEF", client.blog, true);
 		assertFalse(newClient.verifyKey());
 	}
 }

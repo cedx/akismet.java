@@ -15,11 +15,10 @@ var author = new Author(InetAddress.getByName("127.0.0.1"));
 author.name = "viagra-test-123";
 author.userAgent = "Mozilla/5.0";
 
-var comment = new Comment(author);
-comment.content = "A user comment.";
-
 var blog = new Blog(URI.create("https://www.yourblog.com"));
+var comment = new Comment(author, "A user comment.");
 var result = new Client("123YourAPIKey", blog).checkComment(comment);
+
 System.out.println("It should be 'CheckResult.Spam': " + result);
 ```
 
@@ -34,11 +33,10 @@ var author = new Author(InetAddress.getByName("127.0.0.1"));
 author.role = "administrator";
 author.userAgent = "Mozilla/5.0";
 
-var comment = new Comment(author);
-comment.content = "A user comment.";
-
 var blog = new Blog(URI.create("https://www.yourblog.com"));
+var comment = new Comment(author, "A user comment.");
 var result = new Client("123YourAPIKey", blog).checkComment(comment);
+
 System.out.println("It should be 'CheckResult.Ham': " + result);
 ```
 
@@ -53,11 +51,8 @@ var blog = new Blog(URI.create("https://www.yourblog.com"));
 var client = new Client("123YourAPIKey", blog);
 client.isTest = true;
 
-var author = new Author(InetAddress.getByName("127.0.0.1"));
-author.userAgent = "Mozilla/5.0";
-
-var comment = new Comment(author);
-comment.content = "A user comment.";
+var author = new Author(InetAddress.getByName("127.0.0.1"), "Mozilla/5.0");
+var comment = new Comment(author, "A user comment.");
 
 // It should not influence subsequent calls.
 client.checkComment(comment);

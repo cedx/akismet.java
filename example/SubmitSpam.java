@@ -19,14 +19,12 @@ class SubmitSpam {
 	@SuppressWarnings("PMD.SystemPrintln")
 	public static void main(String... args) throws UnknownHostException {
 		try {
-			var author = new Author(InetAddress.getByName("192.168.123.456"));
-			author.userAgent = "Spam Bot/6.6.6";
-
-			var comment = new Comment(author);
-			comment.content = "Spam!";
+			var author = new Author(InetAddress.getByName("192.168.123.456"), "Spam Bot/6.6.6");
+			var comment = new Comment(author, "Spam!");
 
 			var client = new Client("123YourAPIKey", new Blog(URI.create("https://www.yourblog.com")));
 			client.submitSpam(comment);
+
 			System.out.println("The comment was successfully submitted as spam.");
 		}
 		catch (Client.Exception e) {
