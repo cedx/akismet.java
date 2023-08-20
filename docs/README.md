@@ -1,6 +1,6 @@
 # Akismet for Java
 Used by millions of websites, [Akismet](https://akismet.com) filters out hundreds of millions of spam comments from the Web every day.
-Add Akismet to your [Java](https://www.java.com) applications so you don't have to worry about spam again.
+Add Akismet to your [Java](https://www.oracle.com/java) applications so you don't have to worry about spam again.
 
 ## Quick start
 
@@ -11,7 +11,7 @@ The Akismet service requires an API key. If you are not already registered, [sig
 Download the latest JAR file of **Akismet for Java** from the GitHub releases:  
 https://github.com/cedx/akismet.java/releases/latest
 
-Add it to your class path. Now in your [Java](https://www.java.com) code, you can use:
+Add it to your class path. Now in your [Java](https://www.oracle.com/java) code, you can use:
 
 ```java
 import io.belin.akismet.*;
