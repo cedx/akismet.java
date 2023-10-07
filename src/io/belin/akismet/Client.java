@@ -183,6 +183,7 @@ public final class Client {
 
 		var request = HttpRequest.newBuilder(baseUrl.resolve(endpoint))
 			.header("Content-Type", "application/x-www-form-urlencoded")
+			.header("User-Agent", userAgent)
 			.POST(HttpRequest.BodyPublishers.ofString(body))
 			.build();
 
