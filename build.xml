@@ -9,7 +9,7 @@
 	<property name="vendor.name" value="Cédric Belin"/>
 
 	<description>${project.title} ${project.version}</description>
-	<ivy:settings file="etc/ivy.xml" unless:set="env.GITHUB_ACTIONS"/>
+	<ivy:settings file="etc/ivy.xml" unless:true="${env.GITHUB_ACTIONS}"/>
 
 	<path id="project.classpath">
 		<pathelement location="bin"/>
