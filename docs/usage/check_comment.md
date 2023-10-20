@@ -51,7 +51,7 @@ class Program {
       author.email = "john.doe@domain.com";
       author.name = "John Doe";
       author.role = "guest";
-      author.userAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/115.0";
+      author.userAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36";
 
       var comment = new Comment(author, "A user comment.", "contact-form");
       comment.date = Instant.now();

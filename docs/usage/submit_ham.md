@@ -43,7 +43,7 @@ class Program {
     try {
       var author = new Author(
         InetAddress.getByName("192.168.123.456"),
-        "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/115.0"
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36"
       );
 
       var comment = new Comment(author, "I'm testing out the Service API.");
