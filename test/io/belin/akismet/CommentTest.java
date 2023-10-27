@@ -15,11 +15,11 @@ import org.junit.jupiter.api.Test;
 final class CommentTest {
 
 	@Test
-	@DisplayName("toMap()")
+	@DisplayName("toJson()")
 	@SuppressWarnings({"PMD.AvoidDuplicateLiterals", "PMD.AvoidUsingHardCodedIP", "PMD.LinguisticNaming"})
-	void toMap() throws UnknownHostException {
+	void toJson() throws UnknownHostException {
 		// It should return only the author info with a newly created instance.
-		var map = new Comment(new Author(InetAddress.getByName("127.0.0.1"))).toMap();
+		var map = new Comment(new Author(InetAddress.getByName("127.0.0.1"))).toJson();
 		assertEquals(1, map.size());
 		assertEquals("127.0.0.1", map.get("user_ip"));
 
@@ -32,7 +32,7 @@ final class CommentTest {
 		comment.date = Instant.parse("2000-01-01T00:00:00.000Z");
 		comment.referrer = URI.create("https://belin.io");
 
-		map = comment.toMap();
+		map = comment.toJson();
 		assertEquals(7, map.size());
 		assertEquals("Cédric Belin", map.get("comment_author"));
 		assertEquals("A user comment.", map.get("comment_content"));

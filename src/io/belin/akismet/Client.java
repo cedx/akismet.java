@@ -124,7 +124,7 @@ public final class Client {
 	 * @throws Exception The remote server returned an invalid response.
 	 */
 	public CheckResult checkComment(Comment comment) throws Exception {
-		var response = fetch("1.1/comment-check", comment.toMap());
+		var response = fetch("1.1/comment-check", comment.toJson());
 		if (response.body().equals("false")) return CheckResult.Ham;
 		var header = response.headers().firstValue("X-akismet-pro-tip");
 		return header.isPresent() && header.get().equals("discard") ? CheckResult.PervasiveSpam : CheckResult.Spam;
@@ -136,7 +136,7 @@ public final class Client {
 	 * @throws Exception The remote server returned an invalid response.
 	 */
 	public void submitHam(Comment comment) throws Exception {
-		var response = fetch("1.1/submit-ham", comment.toMap());
+		var response = fetch("1.1/submit-ham", comment.toJson());
 		if (!response.body().equals(success)) throw new Exception("Invalid server response.");
 	}
 
@@ -146,7 +146,7 @@ public final class Client {
 	 * @throws Exception The remote server returned an invalid response.
 	 */
 	public void submitSpam(Comment comment) throws Exception {
-		var response = fetch("1.1/submit-spam", comment.toMap());
+		var response = fetch("1.1/submit-spam", comment.toJson());
 		if (!response.body().equals(success)) throw new Exception("Invalid server response.");
 	}
 
@@ -170,7 +170,7 @@ public final class Client {
 	 * @throws Exception An error occurred while querying the end point.
 	 */
 	private HttpResponse<String> fetch(String endpoint, Map<String, String> fields) throws Exception {
-		var postFields = this.blog.toMap();
+		var postFields = this.blog.toJson();
 		postFields.putAll(fields);
 		postFields.put("api_key", apiKey);
 		if (isTest) postFields.put("is_test", "1");

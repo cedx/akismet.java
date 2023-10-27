@@ -133,12 +133,12 @@ public class Comment {
 	}
 
 	/**
-	 * Converts this object to a map.
-	 * @return The map corresponding to this object.
+	 * Converts this object to a map in JSON format.
+	 * @return The map in JSON format corresponding to this object.
 	 */
 	@SuppressWarnings("PMD.NPathComplexity")
-	public Map<String, String> toMap() {
-		var map = author.toMap();
+	public Map<String, String> toJson() {
+		var map = author.toJson();
 		if (!content.isEmpty()) map.put("comment_content", content);
 		if (!context.isEmpty()) map.put("comment_context", context.toString());
 		if (date != null) map.put("comment_date_gmt", date.toString());

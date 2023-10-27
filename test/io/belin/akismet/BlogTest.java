@@ -14,16 +14,16 @@ import org.junit.jupiter.api.Test;
 final class BlogTest {
 
 	@Test
-	@DisplayName("toMap()")
+	@DisplayName("toJson()")
 	@SuppressWarnings({"PMD.AvoidDuplicateLiterals", "PMD.LinguisticNaming"})
-	void toMap() {
+	void toJson() {
 		// It should return only the blog URL with a newly created instance.
-		var map = new Blog(URI.create("https://github.com/cedx/akismet.java")).toMap();
+		var map = new Blog(URI.create("https://github.com/cedx/akismet.java")).toJson();
 		assertEquals(1, map.size());
 		assertEquals("https://github.com/cedx/akismet.java", map.get("blog"));
 
 		// It should return a non-empty map with a initialized instance.
-		map = new Blog(URI.create("https://github.com/cedx/akismet.java"), StandardCharsets.UTF_8, List.of("en", "fr")).toMap();
+		map = new Blog(URI.create("https://github.com/cedx/akismet.java"), StandardCharsets.UTF_8, List.of("en", "fr")).toJson();
 		assertEquals(3, map.size());
 		assertEquals("https://github.com/cedx/akismet.java", map.get("blog"));
 		assertEquals("UTF-8", map.get("blog_charset"));

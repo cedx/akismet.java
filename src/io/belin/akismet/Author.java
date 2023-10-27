@@ -98,10 +98,10 @@ public class Author {
 	}
 
 	/**
-	 * Converts this object to a map.
-	 * @return The map corresponding to this object.
+	 * Converts this object to a map in JSON format.
+	 * @return The map in JSON format corresponding to this object.
 	 */
-	public Map<String, String> toMap() {
+	public Map<String, String> toJson() {
 		var map = new HashMap<String, String>();
 		map.put("user_ip", ipAddress.getHostAddress());
 		if (!email.isEmpty()) map.put("comment_author_email", email);

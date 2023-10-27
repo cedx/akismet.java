@@ -70,10 +70,10 @@ public class Blog {
 	}
 
 	/**
-	 * Converts this object to a map.
-	 * @return The map corresponding to this object.
+	 * Converts this object to a map in JSON format.
+	 * @return The map in JSON format corresponding to this object.
 	 */
-	public Map<String, String> toMap() {
+	public Map<String, String> toJson() {
 		var map = new HashMap<String, String>();
 		map.put("blog", url.toString());
 		if (charset != null) map.put("blog_charset", charset.toString());

@@ -14,11 +14,11 @@ import org.junit.jupiter.api.Test;
 final class AuthorTest {
 
 	@Test
-	@DisplayName("toMap()")
+	@DisplayName("toJson()")
 	@SuppressWarnings({"PMD.AvoidUsingHardCodedIP", "PMD.LinguisticNaming"})
-	void toMap() throws UnknownHostException {
+	void toJson() throws UnknownHostException {
 		// It should return only the IP address with a newly created instance.
-		var map = new Author(InetAddress.getByName("127.0.0.1")).toMap();
+		var map = new Author(InetAddress.getByName("127.0.0.1")).toJson();
 		assertEquals(1, map.size());
 		assertEquals("127.0.0.1", map.get("user_ip"));
 
@@ -26,7 +26,7 @@ final class AuthorTest {
 		var author = new Author(InetAddress.getByName("192.168.0.1"), "Cédric Belin", "cedric@belin.io", URI.create("https://belin.io"));
 		author.userAgent = "Mozilla/5.0";
 
-		map = author.toMap();
+		map = author.toJson();
 		assertEquals(5, map.size());
 		assertEquals("Cédric Belin", map.get("comment_author"));
 		assertEquals("cedric@belin.io", map.get("comment_author_email"));
