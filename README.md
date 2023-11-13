@@ -4,12 +4,12 @@
 Prevent comment spam using [Akismet](https://akismet.com) service, in [Java](https://www.oracle.com/java).
 
 ## Documentation
-- [User guide](https://docs.belin.io/akismet.java)
-- [API reference](https://docs.belin.io/akismet.java/api)
+- [User guide](https://cedx.github.io/akismet.java)
+- [API reference](https://cedx.github.io/akismet.java/api)
 
 ## Development
 - [Git repository](https://github.com/cedx/akismet.java)
 - [Submit an issue](https://github.com/cedx/akismet.java/issues)
 
 ## License
-[Akismet for Java](https://docs.belin.io/akismet.java) is distributed under the MIT License.
+[Akismet for Java](https://cedx.github.io/akismet.java) is distributed under the MIT License.

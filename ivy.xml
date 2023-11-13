@@ -4,7 +4,7 @@
 	xsi:noNamespaceSchemaLocation="https://ant.apache.org/ivy/schemas/ivy.xsd">
 
 	<info organisation="io.belin" module="akismet" revision="1.0.0">
-		<description homepage="https://docs.belin.io/akismet.java">
+		<description homepage="https://cedx.github.io/akismet.java">
 			Prevent comment spam using Akismet service.
 		</description>
 	</info>
