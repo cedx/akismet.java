@@ -12,4 +12,4 @@ Prevent comment spam using [Akismet](https://akismet.com) service, in [Java](htt
 - [Submit an issue](https://github.com/cedx/akismet.java/issues)
 
 ## License
-[Akismet for Java](https://cedx.github.io/akismet.java) is distributed under the MIT License.
+[Akismet for Java](https://github.com/cedx/akismet.java) is distributed under the MIT License.
