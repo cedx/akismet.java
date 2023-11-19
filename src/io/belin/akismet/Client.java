@@ -102,9 +102,10 @@ public final class Client {
 	 * @param userAgent The user agent string to use when making requests.
 	 * @param baseUrl The base URL of the remote API endpoint.
 	 */
-	public Client(String apiKey, Blog blog, boolean isTest, String userAgent, URI baseUrl) {
+	public Client(String apiKey, Blog blog, boolean isTest, String userAgent, String baseUrl) {
+		var url = Objects.requireNonNullElse(baseUrl, "https://rest.akismet.com");
 		this.apiKey = Objects.requireNonNull(apiKey);
-		this.baseUrl = Objects.requireNonNullElse(baseUrl, URI.create("https://rest.akismet.com/"));
+		this.baseUrl = URI.create(url.endsWith("/") ? url : url + "/");
 		this.blog = Objects.requireNonNull(blog);
 		this.isTest = isTest;
 
