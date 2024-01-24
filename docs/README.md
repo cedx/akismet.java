@@ -29,4 +29,3 @@ Before integrating this library into your application, you should [test your API
 ## See also
 - [API reference](api/)
 - [GitHub releases](https://github.com/cedx/akismet.java/releases)
-- [Code coverage](https://app.codecov.io/gh/cedx/akismet.java)
