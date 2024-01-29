@@ -22,7 +22,7 @@ final class BlogTest {
 		assertEquals(1, map.size());
 		assertEquals("https://github.com/cedx/akismet.java", map.get("blog"));
 
-		// It should return a non-empty map with a initialized instance.
+		// It should return a non-empty map with an initialized instance.
 		map = new Blog(URI.create("https://github.com/cedx/akismet.java"), StandardCharsets.UTF_8, List.of("en", "fr")).toJson();
 		assertEquals(3, map.size());
 		assertEquals("https://github.com/cedx/akismet.java", map.get("blog"));

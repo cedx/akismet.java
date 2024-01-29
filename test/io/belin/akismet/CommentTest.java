@@ -23,7 +23,7 @@ final class CommentTest {
 		assertEquals(1, map.size());
 		assertEquals("127.0.0.1", map.get("user_ip"));
 
-		// It should return a non-empty map with a initialized instance.
+		// It should return a non-empty map with an initialized instance.
 		var author = new Author(InetAddress.getByName("127.0.0.1"));
 		author.name = "Cédric Belin";
 		author.userAgent = "Doom/6.6.6";
