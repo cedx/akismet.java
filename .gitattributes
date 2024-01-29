@@ -3,7 +3,6 @@
 
 *.css text diff=css
 *.html text diff=html
-*.http text
 *.info text
 *.java text diff=java
 *.json text
