@@ -26,7 +26,7 @@ A `CheckResult` value indicating whether the given `Comment` is ham, spam or per
 The method throws a `Client.Exception` when an error occurs.
 The exception `getMessage()` usually includes some debug information, provided by the `X-akismet-debug-help` HTTP header, about what exactly was invalid about the call.
 
-It can also throws a custom error code and message (respectively provided by the `X-akismet-alert-code` and `X-akismet-alert-msg` headers).
+It can also throw a custom error code and message (respectively provided by the `X-akismet-alert-code` and `X-akismet-alert-msg` headers).
 See [Response Error Codes](https://akismet.com/developers/errors) for more information.
 
 ## Example
@@ -51,7 +51,7 @@ class Program {
       author.email = "john.doe@domain.com";
       author.name = "John Doe";
       author.role = "guest";
-      author.userAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36";
+      author.userAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36";
 
       var comment = new Comment(author, "A user comment.", "contact-form");
       comment.date = Instant.now();

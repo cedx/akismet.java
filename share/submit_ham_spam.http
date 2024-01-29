@@ -10,7 +10,7 @@ comment_content = I'm testing out the Service API. &
 comment_type = comment &
 is_test = true &
 referrer = https://mvnrepository.com/artifact/io.belin/akismet &
-user_agent = Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36 &
+user_agent = Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36 &
 user_ip = 192.168.0.1 &
 user_role = administrator
 
