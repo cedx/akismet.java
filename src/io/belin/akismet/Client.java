@@ -188,14 +188,14 @@ public final class Client {
 			.POST(HttpRequest.BodyPublishers.ofString(body))
 			.build();
 
-		try {
-			var response = HttpClient.newHttpClient().send(request, BodyHandlers.ofString());
+		try (var client = HttpClient.newHttpClient()) {
+			var response = client.send(request, BodyHandlers.ofString());
 			if ((response.statusCode() / 100) != 2) throw new Exception("An error occurred while sending the request.");
 
 			var headers = response.headers();
-			if (headers.firstValue("X-akismet-alert-code").isPresent()) throw new Exception(headers.firstValue("X-akismet-alert-msg").get());
-
-			var header = headers.firstValue("X-akismet-debug-help");
+			var header = headers.firstValue("X-akismet-alert-code");
+			if (header.isPresent()) throw new Exception(header.get());
+			header = headers.firstValue("X-akismet-debug-help");
 			if (header.isPresent()) throw new Exception(header.get());
 
 			return response;

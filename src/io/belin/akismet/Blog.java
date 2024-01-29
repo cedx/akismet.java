@@ -8,7 +8,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
-import java.util.stream.Collectors;
 
 /**
  * Represents the front page or home URL transmitted when making requests.
@@ -77,7 +76,7 @@ public class Blog {
 		var map = new HashMap<String, String>();
 		map.put("blog", url.toString());
 		if (charset != null) map.put("blog_charset", charset.toString());
-		if (!languages.isEmpty()) map.put("blog_lang", languages.stream().collect(Collectors.joining(",")));
+		if (!languages.isEmpty()) map.put("blog_lang", String.join(",", languages));
 		return map;
 	}
 }
