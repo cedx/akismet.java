@@ -127,7 +127,7 @@ public final class Client {
 	public CheckResult checkComment(Comment comment) throws Exception {
 		var response = fetch("1.1/comment-check", comment.toJson());
 		if (response.body().equals("false")) return CheckResult.Ham;
-		var header = response.headers().firstValue("X-akismet-pro-tip");
+		var header = response.headers().firstValue("x-akismet-pro-tip");
 		return header.isPresent() && header.get().equals("discard") ? CheckResult.PervasiveSpam : CheckResult.Spam;
 	}
 
@@ -183,8 +183,8 @@ public final class Client {
 			.collect(Collectors.joining("&"));
 
 		var request = HttpRequest.newBuilder(baseUrl.resolve(endpoint))
-			.header("Content-Type", "application/x-www-form-urlencoded")
-			.header("User-Agent", userAgent)
+			.header("content-type", "application/x-www-form-urlencoded")
+			.header("user-agent", userAgent)
 			.POST(HttpRequest.BodyPublishers.ofString(body))
 			.build();
 
@@ -193,9 +193,9 @@ public final class Client {
 			if ((response.statusCode() / 100) != 2) throw new Exception("An error occurred while sending the request.");
 
 			var headers = response.headers();
-			var header = headers.firstValue("X-akismet-alert-code");
+			var header = headers.firstValue("x-akismet-alert-code");
 			if (header.isPresent()) throw new Exception(header.get());
-			header = headers.firstValue("X-akismet-debug-help");
+			header = headers.firstValue("x-akismet-debug-help");
 			if (header.isPresent()) throw new Exception(header.get());
 
 			return response;
