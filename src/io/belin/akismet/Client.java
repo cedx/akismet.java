@@ -157,10 +157,13 @@ public final class Client {
 	 * @throws Exception The remote server returned an invalid response.
 	 */
 	public boolean verifyKey() throws Exception {
-		var map = new HashMap<String, String>();
-		map.put("key", apiKey);
-		var response = fetch("1.1/verify-key", map);
-		return response.body().equals("valid");
+		try {
+			var response = fetch("1.1/verify-key", new HashMap<>());
+			return response.body().equals("valid");
+		}
+		catch (Exception e) {
+			return false;
+		}
 	}
 
 	/**
