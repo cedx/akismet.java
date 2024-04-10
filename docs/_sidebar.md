@@ -1,9 +1,0 @@
-- Usage
-	- [Key verification](usage/verify_key.md)
-	- [Comment check](usage/check_comment.md)
-	- [Submit spam](usage/submit_spam.md)
-	- [Submit ham](usage/submit_ham.md)
-- [Testing](testing.md)
-- [API reference](api/)
-- [Changelog](changelog.md)
-- [License](license.md)
