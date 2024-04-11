@@ -7,7 +7,7 @@ The more data you send Akismet about each comment, the greater the accuracy. We 
 CheckResult Client.checkComment(Comment comment)
 ```
 
-It is important to [test Akismet](testing.md) with a significant amount of real, live data in order to draw any conclusions on accuracy.
+It is important to [test Akismet](../testing.md) with a significant amount of real, live data in order to draw any conclusions on accuracy.
 Akismet works by comparing content to genuine spam activity happening **right now** (and this is based on more than just the content itself),
 so artificially generating spam comments is not a viable approach.
 
@@ -21,7 +21,8 @@ The `Comment` providing the user's message to be checked.
 ## Return value
 A `CheckResult` value indicating whether the given `Comment` is ham, spam or pervasive spam.
 
-> A comment classified as pervasive spam can be safely discarded.
+!!! tip
+    A comment classified as pervasive spam can be safely discarded.
 
 The method throws a `Client.Exception` when an error occurs.
 The exception `getMessage()` usually includes some debug information, provided by the `X-akismet-debug-help` HTTP header, about what exactly was invalid about the call.
@@ -68,4 +69,4 @@ class Program {
 }
 ```
 
-See the [API reference](api/) for detailed information about the `Author` and `Comment` classes, and their properties.
+See the [API reference](../api/) for detailed information about the `Author` and `Comment` classes, and their properties.

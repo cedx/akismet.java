@@ -3,7 +3,7 @@ When you will integrate this library with your own application, you will of cour
 Often we see developers get ahead of themselves, making a few trivial API calls with minimal values
 and drawing the wrong conclusions about Akismet's accuracy.
 
-## Simulate a positive (spam) result
+## Simulate a positive result (spam)
 Make a [comment check](usage/check_comment.md) API call with the `Author.name` set to `"viagra-test-123"`
 or `Author.email` set to `"akismet-guaranteed-spam@example.com"`. Populate all other required fields with typical values.
 
@@ -22,7 +22,7 @@ var result = new Client("123YourAPIKey", blog).checkComment(comment);
 System.out.println("It should be 'CheckResult.Spam': " + result);
 ```
 
-## Simulate a negative (not spam) result
+## Simulate a negative result (ham)
 Make a [comment check](usage/check_comment.md) API call with the `Author.role` set to `"administrator"`
 and all other required fields populated with typical values.
 
