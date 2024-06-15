@@ -27,7 +27,7 @@ class CheckComment {
 			author.email = "john.doe@domain.com";
 			author.name = "John Doe";
 			author.role = "guest";
-			author.userAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36";
+			author.userAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0";
 
 			var comment = new Comment(author, "A user comment.", "contact-form");
 			comment.date = Instant.now();
