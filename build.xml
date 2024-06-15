@@ -17,6 +17,7 @@
 
 	<target name="build" description="Builds the project">
 		<mkdir dir="bin"/>
+		<replaceregexp file="src/io/belin/akismet/Client.java" match="version = &quot;\d+(\.\d+){2}&quot;" replace="version = &quot;${project.version}&quot;"/>
 		<javac srcDir="src" destDir="bin" classPathRef="project.classpath" includeAntRuntime="false">
 			<compilerarg value="-proc:full"/>
 			<compilerarg value="-Xlint:all,-path,-processing"/>
