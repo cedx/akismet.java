@@ -4,8 +4,8 @@
 Prevent comment spam using [Akismet](https://akismet.com) service, in [Java](https://www.oracle.com/java).
 
 ## Documentation
-- [User guide](https://docs.belin.io/akismet.java)
-- [API reference](https://docs.belin.io/akismet.java/api)
+- [User guide](https://github.com/cedx/akismet.java/wiki)
+- [Examples](https://github.com/cedx/akismet.java/tree/main/example)
 
 ## Development
 - [Git repository](https://github.com/cedx/akismet.java)
