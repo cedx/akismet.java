@@ -69,8 +69,8 @@ public class Blog {
 	}
 
 	/**
-	 * Converts this object to a map in JSON format.
-	 * @return The map in JSON format corresponding to this object.
+	 * Returns a JSON representation of this object.
+	 * @return The JSON representation of this object.
 	 */
 	public Map<String, String> toJson() {
 		var map = new HashMap<String, String>();
