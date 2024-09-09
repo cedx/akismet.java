@@ -40,7 +40,7 @@ final class ClientTest {
 		hamAuthor.name = "Akismet";
 		hamAuthor.role = "administrator";
 		hamAuthor.url = URI.create("https://belin.io");
-		hamAuthor.userAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0";
+		hamAuthor.userAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 Edg/128.0.0.0";
 
 		ham = new Comment(hamAuthor, "I'm testing out the Service API.", "comment");
 		ham.referrer = URI.create("https://mvnrepository.com/artifact/io.belin/akismet");
