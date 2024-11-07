@@ -108,14 +108,7 @@ public final class Client {
 		this.baseUrl = URI.create(url.endsWith("/") ? url : url + "/");
 		this.blog = Objects.requireNonNull(blog);
 		this.isTest = isTest;
-
-		var javaVersion = Runtime.version();
-		this.userAgent = Objects.requireNonNullElse(userAgent, "Java/%d.%d.%d | Akismet/%s".formatted(
-			javaVersion.feature(),
-			javaVersion.interim(),
-			javaVersion.update(),
-			version
-		));
+		this.userAgent = Objects.requireNonNullElse(userAgent, "Java/%d | Akismet/%s".formatted(Runtime.version().feature(), version));
 	}
 
 	/**
